@@ -99,14 +99,14 @@
 .toast__img--error {
     background: url(/src/img/triangle.svg);
     background-repeat: no-repeat;
-    background-size: 90%;
+    background-size: 80%;
     background-position: center;
 }
 
 .toast__img--warning {
     background: url(/src/img/radiation.svg);
     background-repeat: no-repeat;
-    background-size: 90%;
+    background-size: 80%;
     background-position: center;
 }
 
@@ -143,7 +143,7 @@
     z-index: 10;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.3);
     display: flex;
     flex-direction: column;
     justify-content: center;
