@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -10,6 +12,118 @@
     border: 2px solid red;
 }
 
+.toast__space {
+    position: absolute;
+    right: 0;
+    z-index: 10;
+}
+
+.toast {
+    width: 350px;
+    height: 100px;
+    margin: 10px;
+    border: 1px solid black;
+    border-radius: 15px;
+    font-family: 'Lato', sans-serif;
+    display: flex;
+    justify-content: center;
+}
+
+.toast__img {
+    flex: 2;
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.toast__message {
+    flex: 5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 5px 0 5px 0;
+}
+
+.toast__message__title {
+    text-transform: uppercase;
+    font-size: 120%;
+    font-weight: bolder;
+    flex: 1;
+}
+
+.toast__message__text {
+    flex: 2;
+    overflow: hidden;
+}
+
+
+.toast__ui {
+    flex: 1;
+    /* border: 1px solid red; */
+}
+
+.ui__cross {
+    height: 30px;
+    background: url(/src/img/cross.svg);
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: 40%;
+    margin-top: 5px;
+    /* border: 1px solid blue; */
+    transition: 0.15s;
+}
+
+.ui__cross:hover {
+    background-size: 50%;
+    transition: 0.15s;
+    cursor: pointer;
+}
+
+.toast__status--error {
+    background-color: rgba(255, 0, 0, 0.5);
+}
+
+.toast__status--warning {
+    background-color: rgba(255, 255, 0, 0.5);
+}
+
+.toast__status--success {
+    background-color: rgba(0, 255, 0, 0.5);
+}
+
+.toast__status--info {
+    background-color: rgba(0, 0, 255, 0.5);
+}
+
+.toast__img--error {
+    background: url(/src/img/triangle.svg);
+    background-repeat: no-repeat;
+    background-size: 90%;
+    background-position: center;
+}
+
+.toast__img--warning {
+    background: url(/src/img/radiation.svg);
+    background-repeat: no-repeat;
+    background-size: 90%;
+    background-position: center;
+}
+
+.toast__img--success {
+    background: url(/src/img/check.svg);
+    background-repeat: no-repeat;
+    background-size: 80%;
+    background-position: center;
+}
+
+.toast__img--info {
+    background: url(/src/img/info.svg);
+    background-repeat: no-repeat;
+    background-size: 30%;
+    background-position: center;
+}
+
 .test-popup {
     position: absolute;
     top: 0;
@@ -19,4 +133,28 @@
     height: 100vh;
     border: 5px solid orange;
     background-color: rgb(255, 193, 77, 0.5);
+    font-family: 'Lato', sans-serif;
+}
+
+.modal__shadow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal {
+    width: 400px;
+    height: 250px;
+    border: 2px solid black;
+    border-radius: 15px;
+    background-color: lightgray;
+    font-family: 'Lato', sans-serif;
 }

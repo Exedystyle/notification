@@ -1,23 +1,29 @@
 export default class Popup {
-    constructor(){
-        // this.popup;
+    constructor() {
         this.createPopup();
     }
 
     createPopup () {
         this.popup = document.createElement('div');
-        this.popup.classList.add('test-popup');
     }
     
     render (parent) {
-        parent.appendChild(this.popup);
+        this.parent = parent;
+        this.parent.appendChild(this.popup);
     }
 
     close () {
         this.popup.style.display = 'none';
+        this.popup = null;
     }
 
     subscribe () {}
 
     unsubscribe () {}
+
+    static createDivWithClass (className) {
+        const item = document.createElement('div');
+        item.classList.add(className);
+        return item;
+    }
 }
