@@ -14,5 +14,11 @@ export default class Modal extends Popup {
         const modalWindow = Popup.createDivWithClass('modal');
 
         this.popup.appendChild(modalWindow);
+
+        modalWindow.addEventListener('click', e => {
+            e.stopPropagation();    
+        });
+        super.subscribe(this.popup);
     }
+
 }

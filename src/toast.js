@@ -5,6 +5,8 @@ export default class Toast extends Popup {
         super();
         this.message = message;
         this.status = statusMap[status];
+        this.closeHandler
+
 
         this.createToast();
     }
@@ -33,6 +35,10 @@ export default class Toast extends Popup {
         this.popup.appendChild(img);
         this.popup.appendChild(message);
         this.popup.appendChild(ui);
+
+        this.closeHandler = uiClose;
+
+        super.subscribe(this.closeHandler);
     }
 
 }
