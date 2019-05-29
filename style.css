@@ -95,28 +95,28 @@ body {
 }
 
 .toast__img--error {
-    background: url(/src/img/triangle.svg);
+    background: url(src/img/triangle.svg);
     background-repeat: no-repeat;
     background-size: 80%;
     background-position: center;
 }
 
 .toast__img--warning {
-    background: url(/src/img/radiation.svg);
+    background: url(src/img/radiation.svg);
     background-repeat: no-repeat;
     background-size: 80%;
     background-position: center;
 }
 
 .toast__img--success {
-    background: url(/src/img/check.svg);
+    background: url(src/img/check.svg);
     background-repeat: no-repeat;
     background-size: 80%;
     background-position: center;
 }
 
 .toast__img--info {
-    background: url(/src/img/info.svg);
+    background: url(src/img/info.svg);
     background-repeat: no-repeat;
     background-size: 30%;
     background-position: center;
