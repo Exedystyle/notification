@@ -64,7 +64,7 @@ body {
 
 .ui__cross {
     height: 30px;
-    background: url(/src/img/cross.svg);
+    background: url(src/img/cross.svg);
     background-repeat: no-repeat;
     background-position: top;
     background-size: 40%;
