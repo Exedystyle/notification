@@ -9,12 +9,46 @@ const success = 'All right, you\'re fine fellow. Keep it up!';
 const info = 'I just want to know that you are fine';
 
 
-const toast = new Toast(warning, 3);
-const toast2 = new Toast(success, 1);
-const toast3 = new Toast(error, 2);
-const toast4 = new Toast(info);
+const button1 = document.getElementById('1');
+button1.addEventListener('click', function(){
+    const toast = new Toast(success, 1);
+    toast.render();
+});
 
-const modal = new Modal('close it', info);
+const button2 = document.getElementById('2');
+button2.addEventListener('click', function(){
+    const toast = new Toast(error, 2);
+    toast.render();
+});
+
+const button3 = document.getElementById('3');
+button3.addEventListener('click', function(){
+    const toast = new Toast(warning, 3);
+    toast.render();
+});
+
+const button4 = document.getElementById('4');
+button4.addEventListener('click', function(){
+    const toast = new Toast(info);
+    toast.render();
+});
+
+const button5 = document.getElementById('5');
+button5.addEventListener('click', function(){
+    const modal = new Modal('close it', str40);
+    modal.render();
+});
+
+
+
+
+
+// const toast = new Toast(warning, 3);
+// const toast2 = new Toast(success, 1);
+// const toast3 = new Toast(error, 2);
+// const toast4 = new Toast(info);
+
+// const modal = new Modal('close it', str40);
 
 // toast.render();
 // toast2.render();

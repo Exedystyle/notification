@@ -46,7 +46,7 @@ export default class Toast extends Popup {
             document.body.appendChild(this.container); 
         }
 
-        super.render(this.container);
+        super.render(this.container, 5000);
     }
 }
 
