@@ -14,17 +14,12 @@ const toast2 = new Toast(success, 1);
 const toast3 = new Toast(error, 2);
 const toast4 = new Toast(info);
 
-const modal = new Modal;
+const modal = new Modal('close it', info);
 
-// toast.render(document.body);
-// toast2.render(document.body);
-// toast3.render(document.body);
-// toast4.render(document.body);
+// toast.render();
+// toast2.render();
+// toast3.render();
+// toast4.render();
 
-// setTimeout(function() {
-//     toast.close()}, 5000);
+// modal.render();
 
-// modal.render(document.body);
-
-// setTimeout(function() {
-//     modal.close()}, 5000);

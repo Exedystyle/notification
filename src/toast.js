@@ -1,12 +1,10 @@
 import Popup from "./popup";
 
 export default class Toast extends Popup {
-    constructor(message = 'great lorem', status = 4){
+    constructor (message = 'great lorem', status = 4) {
         super();
         this.message = message;
         this.status = statusMap[status];
-        this.closeHandler
-
 
         this.createToast();
     }
@@ -36,11 +34,20 @@ export default class Toast extends Popup {
         this.popup.appendChild(message);
         this.popup.appendChild(ui);
 
-        this.closeHandler = uiClose;
-
-        super.subscribe(this.closeHandler);
+        super.subscribe(uiClose);
     }
 
+    render () {
+        this.container = document.querySelector('.toast__space');
+        console.log(this.container);
+
+        if(!this.container) {
+            this.container = Popup.createDivWithClass('toast__space');
+            document.body.appendChild(this.container); 
+        }
+
+        super.render(this.container);
+    }
 }
 
 const statusMap = {

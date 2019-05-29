@@ -8,12 +8,16 @@ export default class Popup {
         this.popup = document.createElement('div');
     }
     
-    render (parent) {
-        this.parent = parent;
-        this.parent.appendChild(this.popup);
+    render (parent = document.body, timeout) {
+        parent.appendChild(this.popup);
+
+        if (timeout) {
+            setTimeout(i => this.close(), timeout);
+        }
     }
 
     close () {
+        // this.popup.classList.add('closing-animation');
         this.popup.style.display = 'none';
         this.popup = null;
         this.unsubscribe();
