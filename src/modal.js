@@ -53,5 +53,4 @@ export default class Modal extends Popup {
         super.subscribe(this.popup);
         super.subscribe(UIButton2);
     }
-
 }

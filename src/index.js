@@ -8,7 +8,6 @@ const error = 'Alarm! Alarm! Stack Overflow! Fix it right now!';
 const success = 'All right, you\'re fine fellow. Keep it up!';
 const info = 'I just want to know that you are fine';
 
-
 const button1 = document.getElementById('1');
 button1.addEventListener('click', function(){
     const toast = new Toast(success, 1);
@@ -39,21 +38,8 @@ button5.addEventListener('click', function(){
     modal.render();
 });
 
-
-
-
-
-// const toast = new Toast(warning, 3);
-// const toast2 = new Toast(success, 1);
-// const toast3 = new Toast(error, 2);
-// const toast4 = new Toast(info);
-
-// const modal = new Modal('close it', str40);
-
-// toast.render();
-// toast2.render();
-// toast3.render();
-// toast4.render();
-
-// modal.render();
-
+const button6 = document.getElementById('6');
+button6.addEventListener('click', function(){
+    const modal = new Modal('another modal', str10);
+    modal.render();
+});

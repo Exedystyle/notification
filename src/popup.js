@@ -10,16 +10,14 @@ export default class Popup {
     
     render (parent = document.body, timeout) {
         parent.appendChild(this.popup);
-
+        
         if (timeout) {
             setTimeout(i => this.close(), timeout);
         }
     }
 
     close () {
-        // this.popup.classList.add('closing-animation');
         this.popup.style.display = 'none';
-        this.popup = null;
         this.unsubscribe();
     }
 
