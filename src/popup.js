@@ -10,14 +10,19 @@ export default class Popup {
     
     render (parent = document.body, timeout) {
         parent.appendChild(this.popup);
-        
+
         if (timeout) {
             setTimeout(i => this.close(), timeout);
         }
     }
 
     close () {
-        this.popup.style.display = 'none';
+        this.popup.classList.add('hide_1');
+        setTimeout(() => {
+            this.popup.style.display = 'none';
+            this.popup.classList.remove('hide_1');
+        }, 400);
+
         this.unsubscribe();
     }
 
