@@ -1,41 +1,32 @@
 import Popup from "./popup";
 
 export default class Modal extends Popup {
-    constructor (title = 'Modal Window', message = 'Enter smth', buttonText = 'empty button') {
+    constructor (title = 'Modal Window', message = 'Enter smth', callback) {
         super()
         this.title = title;
         this.message = message;
-        this.button1Text = buttonText;
+        this.callback = callback; 
+
         this.createModal();
+        this.render();
     }
 
     createModal () {
-        super.createPopup();
-        this.popup.classList.add('modal__shadow');
+        super.createPopup('modal__shadow');
 
-        const modalWindow = Popup.createDivWithClass('modal');
-        const modalHeader = Popup.createDivWithClass('modal__header');
-        const modalBody = Popup.createDivWithClass('modal__body');
-        const modalUI = Popup.createDivWithClass('modal__ui');
+        const modalWindow = Popup.createNode('div', 'modal');
+        const modalHeader = Popup.createNode('div', 'modal__header');
+        const modalBody = Popup.createNode('div', 'modal__body');
+        const modalUI = Popup.createNode('div', 'modal__ui');
 
-        const modalH1 = document.createElement('h1');
-        modalH1.classList.add('modal__header__title');
-        modalH1.innerText = this.title;
+        const modalH1 = Popup.createNode('h1', 'modal__header__title', this.title);
         modalHeader.appendChild(modalH1);
-        
-        const modalMessage = Popup.createDivWithClass('modal__message');
-        modalMessage.innerText = this.message;
+
+        const modalMessage = Popup.createNode('div', 'modal__message', this.message)
         modalBody.appendChild(modalMessage);
 
-        const UIButton1 = document.createElement('button');
-        UIButton1.classList.add('modal__ui__button');
-        UIButton1.classList.add('modal__ui__button--1');
-        UIButton1.innerText = this.button1Text;
-
-        const UIButton2 = document.createElement('button');
-        UIButton2.classList.add('modal__ui__button');
-        UIButton2.classList.add('modal__ui__button--2');
-        UIButton2.innerText = 'close';
+        const UIButton1 = Popup.createNode('button', ['modal__ui__button' ,'modal__ui__button--1'], 'Ok');
+        const UIButton2 = Popup.createNode('button', ['modal__ui__button', 'modal__ui__button--2'], 'Cancel');
 
         modalUI.appendChild(UIButton1);
         modalUI.appendChild(UIButton2);
@@ -44,7 +35,7 @@ export default class Modal extends Popup {
         modalWindow.appendChild(modalBody);
         modalWindow.appendChild(modalUI);
 
-        this.popup.appendChild(modalWindow);
+        super.addChild(modalWindow);
 
         modalWindow.addEventListener('click', e => {
             e.stopPropagation();    
@@ -53,4 +44,5 @@ export default class Modal extends Popup {
         super.subscribe(this.popup);
         super.subscribe(UIButton2);
     }
+
 }

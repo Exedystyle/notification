@@ -1,28 +1,31 @@
 export default class Popup {
     constructor() {
-        this.createPopup();
         this.close = this.close.bind(this);
     }
 
-    createPopup () {
-        this.popup = document.createElement('div');
+    createPopup (className) {
+        this.popup = Popup.createNode('div', className);
+    }
+
+    addClass (className) {
+        this.popup.classList.add(className);
     }
     
-    render (parent = document.body, timeout) {
-        parent.appendChild(this.popup);
+    addChild (...childs) {
+        childs.forEach(i => this.popup.appendChild(i));
+    }
 
-        if (timeout) {
-            setTimeout(i => this.close(), timeout);
-        }
+    render (parent = document.body) {
+        parent.appendChild(this.popup);
     }
 
     close () {
-        this.popup.classList.add('hide_1');
+        this.popup.classList.add('popup__hide');
         setTimeout(() => {
             this.popup.style.display = 'none';
-            this.popup.classList.remove('hide_1');
         }, 400);
 
+        this.callback();
         this.unsubscribe();
     }
 
@@ -34,10 +37,19 @@ export default class Popup {
     unsubscribe () {
         this.closeHandler.removeEventListener('click', this.close);
     }
-
-    static createDivWithClass (className) {
-        const item = document.createElement('div');
-        item.classList.add(className);
+    
+    static createNode (tagName, classNames, text) {
+        const item = document.createElement(tagName);
+        
+        if (classNames instanceof Array) {
+            classNames.forEach(i => item.classList.add(i));
+        }
+        else {
+            item.classList.add(classNames);
+        }
+        
+        if (text) item.innerText = text;
+        
         return item;
     }
 }
