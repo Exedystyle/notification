@@ -1,3 +1,5 @@
+const callbackList = [];
+
 export default class Popup {
     constructor() {
         this.close = this.close.bind(this);
@@ -25,17 +27,19 @@ export default class Popup {
             this.popup.style.display = 'none';
         }, 400);
 
-        this.callback();
-        this.unsubscribe();
+        this.unsubscribe(this.close);
     }
 
-    subscribe (element) {
-        this.closeHandler = element;
-        this.closeHandler.addEventListener('click', this.close);
+    subscribe (element, callback) {
+        callbackList.push(element);
+        element.addEventListener('click', callback);
     }
 
-    unsubscribe () {
-        this.closeHandler.removeEventListener('click', this.close);
+    unsubscribe (callback) {
+
+        callbackList.forEach(i => {
+            i.removeEventListener('click', callback);
+        });
     }
     
     static createNode (tagName, classNames, text) {

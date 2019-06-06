@@ -16,7 +16,11 @@ class Toast extends Popup {
 
         this.createToast();
         this.render();
-        setTimeout(() => { this.close() }, 5000);
+        setTimeout(() => { 
+            if(this.popup.style.display !== 'none') {
+                this.close()
+            }
+        }, 5000);
     }
 
     createToast () {
@@ -39,7 +43,7 @@ class Toast extends Popup {
 
         super.addChild(img, message, ui);
 
-        super.subscribe(uiClose);
+        super.subscribe(uiClose, this.close);
     }
 
     render () {
@@ -53,6 +57,10 @@ class Toast extends Popup {
         super.render(this.container);
     }
 
+    close () {
+        super.close();
+        if(this.callback) this.callback();
+    }
 }
 
 export {Toast, type};

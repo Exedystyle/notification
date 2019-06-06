@@ -41,8 +41,9 @@ export default class Modal extends Popup {
             e.stopPropagation();    
         });
 
-        super.subscribe(this.popup);
-        super.subscribe(UIButton2);
+        super.subscribe(this.popup, this.close);
+        super.subscribe(UIButton2, this.close);
+        super.subscribe(UIButton1, this.callback);
     }
 
 }
